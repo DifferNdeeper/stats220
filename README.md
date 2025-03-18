@@ -14,4 +14,5 @@ A little about me:
 * I am interested in learning about R and HTML.
 
 useful link to practice R: https://www.w3schools.com/r/r_exercises.asp
+
 A meme that captures how I currently feel about my university studies is ![](https://media1.tenor.com/m/S8WWVBn2xXkAAAAd/bruno-fernandes-knee-slide-bruno-celebration.gif)
