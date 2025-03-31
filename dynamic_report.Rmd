@@ -1,0 +1,46 @@
+---
+title: My dynamic report
+output: html_fragment
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo=FALSE, message=FALSE, warning=FALSE, error=FALSE)
+
+```
+
+```{css}
+body {
+  font-family: Arial;
+}
+h2 {
+  color: #0800FF;
+}
+```
+
+# What's going on with this data?
+## Instagram Ads Survey Insights and Analysis. 
+This dynamic report tracks survey responses from an Instagram ads survey. The survey asks respondents three questions:  
+- **Which type of products or services are on Instagram ads?**  
+- **How relevant are the products on ads to the personal interests?**  
+- **How many times have you seen the same ads?**  
+
+Dynamic summary values (calculated in a code chunk below) include:  
+- **Minimum count**   
+- **Maximum count**   
+- **Total count**   
+- **Number of records**     
+
+The report dynamically calculates key summary values for the number of times respondents have seen the same ads and creates two bar charts:  
+1. **One chart shows the frequency of responses for the type of the product ads**  
+2. **The other chart shows the frequency of  counts**   
+
+
+```{r}
+pets <- c("cat", "dog", "turtle", "rabbit")
+best_pet <- pets[1]
+
+```
+
+The best pet to have is a `r best_pet` of course!
+
+![](https://c.tenor.com/-qBsG1HwR4oAAAAC/tenor.gif)
