@@ -19,28 +19,60 @@ h2 {
 
 # What's going on with this data?
 ## Instagram Ads Survey Insights and Analysis. 
-This dynamic report tracks survey responses from an Instagram ads survey. The survey asks respondents three questions:  
+1. This dynamic report tracks survey responses from an Instagram ads survey. The survey asks respondents three questions: 
 - **Which type of products or services are on Instagram ads?**  
 - **How relevant are the products on ads to the personal interests?**  
 - **How many times have you seen the same ads?**  
 
-Dynamic summary values (calculated in a code chunk below) include:  
+2. Summary values (calculated in a code chunk below) include:  
 - **Minimum count**   
 - **Maximum count**   
 - **Total count**   
 - **Number of records**     
 
-The report dynamically calculates key summary values for the number of times respondents have seen the same ads and creates two bar charts:  
-1. **One chart shows the frequency of responses for the type of the product ads**  
-2. **The other chart shows the frequency of  counts**   
+3. The report calculates key summary values for the number of times respondents have seen the same ads and creates two bar charts:  
+- **One chart shows the frequency of responses for the type of the product ads**  
+- **The other chart shows the frequency of  counts**   
 
 
 ```{r}
-pets <- c("cat", "dog", "turtle", "rabbit")
-best_pet <- pets[1]
+library(tidyverse)
+google_url <- "https://docs.google.com/spreadsheets/d/e/2PACX-1vS44M4hGnJWmtP5lR9MwR4CFErRXUqQUu2Zqga9JhcLOUNS_5_Q876kZCDUX6PhTcWbWtsgn5MAg0eN/pub?gid=904361660&single=true&output=csv"
+logged_data <- read_csv(google_url)
+
+logged_data_renamed <- logged_data %>%
+  rename(ads_type = 2,
+         ads_relevance = 3,
+         ads_same_counts = 4)
+
+min_counts <- round(min(logged_data_renamed$ads_same_counts), 1)
+max_counts <- round(max(logged_data_renamed$ads_same_counts), 1)
+total_counts <- round(sum(logged_data_renamed$ads_same_counts), 1)
+num_counts <- length(logged_data_renamed$ads_same_counts)
+print(paste("Minimum count:", min_counts))
+print(paste("Maximum count:", max_counts))
+print(paste("Total count:", total_counts))
+print(paste("Number of records:", num_counts))
+
+plot1 <- ggplot(logged_data_renamed, aes(x = factor(ads_type))) +
+  geom_bar(fill = "blue") +
+  labs(
+    title = "Count of Ads by Ads Types",
+    x = "Instagram Ads Types",
+    y = "Counts"
+  )
+print(plot1)
+
+# Bar Chart 2: Distribution of ads_same_counts responses
+plot2 <- ggplot(logged_data_renamed, aes(x = factor(ads_same_counts))) +
+  geom_bar(fill = "green") +
+  labs(
+    title = "Frequency of Same Ads Counts",
+    x = "Same Ads Counts",
+    y = "Counts"
+  )
+print(plot2)
 
 ```
 
-The best pet to have is a `r best_pet` of course!
-
-![](https://c.tenor.com/-qBsG1HwR4oAAAAC/tenor.gif)
+[Dynamic Report is here](https://differndeeper.github.io/stats220/)
