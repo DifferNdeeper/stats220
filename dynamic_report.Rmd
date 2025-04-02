@@ -37,7 +37,7 @@ h2 {
 
 ```{r}
 library(tidyverse)
-google_url <- "https://docs.google.com/spreadsheets/d/e/2PACX-1vS44M4hGnJWmtP5lR9MwR4CFErRXUqQUu2Zqga9JhcLOUNS_5_Q876kZCDUX6PhTcWbWtsgn5MAg0eN/pub?gid=904361660&single=true&output=csv"
+google_url <- "https://docs.google.com/spreadsheets/d/e/2PACX-1vS44M4hGnJWmtP5lR9MwR4CFErRXUqQUu2Zqga9JhcLOUNS_5_Q876kZCDUX6PhTcWbWtsgn5MAg0eN/pub?output=csv"
 logged_data <- read_csv(google_url)
 
 logged_data_renamed <- logged_data %>%
