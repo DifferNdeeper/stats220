@@ -32,7 +32,7 @@ h2 {
 
 3. The report calculates key summary values for the number of times respondents have seen the same ads and creates two bar charts:  
 - **One chart shows the frequency of responses for the type of the product ads**  
-- **The other chart shows the frequency of  counts**   
+- **The other chart shows the frequency of same ads counts**   
 
 
 ```{r}
