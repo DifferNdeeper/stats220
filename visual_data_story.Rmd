@@ -1,0 +1,102 @@
+---
+title: "Exploring Instagram Ad Exposure Patterns"
+output: html_document
+---
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo=FALSE, message=FALSE, warning=FALSE, error=FALSE)
+```
+
+```{js}
+$(function() {
+  $(".level2").css('visibility', 'hidden');
+  $(".level2").first().css('visibility', 'visible');
+  $(".container-fluid").height($(".container-fluid").height() + 300);
+  $(window).on('scroll', function() {
+    $('h2').each(function() {
+      var h2Top = $(this).offset().top - $(window).scrollTop();
+      var windowHeight = $(window).height();
+      if (h2Top >= 0 && h2Top <= windowHeight / 2) {
+        $(this).parent('div').css('visibility', 'visible');
+      } else if (h2Top > windowHeight / 2) {
+        $(this).parent('div').css('visibility', 'hidden');
+      }
+    });
+  });
+})
+```
+
+```{css, echo=FALSE}
+.figcaption {display: none}
+:root {
+  -colour_1: "#feedde",  
+  -colour_2: "#a1dab4",
+  -colour_3: "#41b6c4",
+  -colour_4: "#2c7fb8",
+  -colour_5: "#253494"   
+}
+body {
+  font-family: Arial;
+  line-height: 1.5;
+}
+h2 {
+  border-left: 4px;
+  padding-left: 8px;
+  margin-top: 2px;
+}
+img { max-width: 100%; height: auto; }
+```
+
+# Overview
+This visual data story examines Instagram ad experiences based on direct observational logs. It reveals where ads appear, how many are seen on average, the relationship between view time and ad count, and hourly posting patterns.
+
+## 1. Which ads placements am I encountering most?
+I logged each Instagram session to capture where ads appeared. This reveals which ad positions are most prominent in my feed.
+
+![](/Users/jameschoi/Library/CloudStorage/OneDrive-TheUniversityofAuckland/2025 S1/stats 220/Project4/plot1.png)
+In‑feed posts account for **16 of the 37 sessions** with ad impressions. Reels follow with 11 sessions, while Explore recorded 10 sessions in the plot. It shows us that Instagram prioritises the feed placement to deliver the majority of sponsored content. For non‑statistical view: imagine opening your feed scroll—most sponsored posts appear there rather than in Explore tab or Reels.
+
+
+## 2. How many ads do I view per category?
+
+Different product and service categories appear at varying frequencies. This distribution helps understand which types of ads dominate my experience.
+
+![](/Users/jameschoi/Library/CloudStorage/OneDrive-TheUniversityofAuckland/2025 S1/stats 220/Project4/plot2.png)
+
+Notice categories like **Food/Drink** tend to have more ad impressions per session, while **Entertainment** and **Home Appliances**shows fewer on average. **Car** ads have the highest median (around 4), while **Entertainment/Festival** and **Home Appliances** sit at the low end (around 1), to show some industries deliver far more ads per visit. Categories like **Technology** show wider distributions to indicating higher variability in ad counts per session, while **Fashion** sessions cluster tightly around lower ad counts.
+
+## 3. Do longer ads lead to fewer ad views?
+
+![](/Users/jameschoi/Library/CloudStorage/OneDrive-TheUniversityofAuckland/2025 S1/stats 220/Project4/plot3.png)
+
+We explore whether longer viewing sessions correlate with seeing more ads. While most sessions cluster at lower durations and ad counts, **Feed** placements (green points) occupy a broader range to show that extended scrolling leads to more ad exposures. Longer ad view durations correlate with fewer ads per session. It suggests that when users pause more, they scroll less and see fewer total ads.
+
+## 4. When am I most exposed to ads?
+By averaging ads per session by hour, I visualise my daily browsing peaks and lows.
+
+![](/Users/jameschoi/Library/CloudStorage/OneDrive-TheUniversityofAuckland/2025 S1/stats 220/Project4/plot4.png)
+
+Ad interactions fluctuate by time of day. Late-afternoon and evening hours show peaks in average ads per session. Scrolling activity peaks around **8 PM** to indicate evening browsing, and dips before **8 AM** when sessions are shorter.
+
+- **Morning lull (5 AM–8 AM):** Rapid check-ins yield fewer ad impressions.
+- **Midday plateau (9 AM–4 PM):** Steady browsing during work breaks results in the consistent flow of ads.
+- **Evening peak (6 PM–10 PM):** My highest ad views occur around **8 PM**, when I’m quite active in winding down with Instagram.
+- **Late-night drop-off (11 PM onward):** Sessions shorten as I wrap up my day.
+
+## 5. How descriptive are the category names?
+I measured the length of category labels by letter count to understand how elaborate each category description is.
+
+![](/Users/jameschoi/Library/CloudStorage/OneDrive-TheUniversityofAuckland/2025 S1/stats 220/Project4/plot5.png)
+**Entertainment/Festival** have much longer names on average to indicate more detailed labeling, while **Food/Drink** remains concise. **Car** sits at the shortest.
+
+By storytelling with clear visuals and simple explanations, this data story helps non‑statistical stakeholders quickly grasp key patterns in ad delivery and user engagement on Instagram.
+
+
+
+
+
+
+
+
